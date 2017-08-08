@@ -1,0 +1,18 @@
+{
+  "name": "VRON Backend",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material-sidenav": "^0.0.14",
+    "angular-material": "^1.1.4"
+  }
+}

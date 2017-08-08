@@ -1,0 +1,63 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="bower_components\angular-material\angular-material.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="bower_components\angular\angular.js"></script>
+    <script src="bower_components\angular-animate\angular-animate.js"></script>
+    <script src="bower_components\angular-aria\angular-aria.js"></script>
+    <script src="bower_components\angular-material\angular-material.js"></script>
+    <script src="bower_components\angular-route\angular-route.js"></script>
+    <script src="bower_components\angular-smart-table\dist\smart-table.js"></script>
+    <link rel="stylesheet" href="bower_components\bootstrap\dist\css\bootstrap.css" />
+
+    <script src="app.js">
+    </script>
+</head>
+
+<body ng-app="myApp" layout="column">
+
+    <div class="container" layout="row" flex>
+        <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp ">
+            <md-toolbar class="md-theme-indigo">
+                <h1 class="md-toolbar-tools">Menu</h1>
+            </md-toolbar>
+            <md-list ng-controller="sidenav as sidenavCtrl">
+                <md-list-item>
+                    <md-button class="md-raised md-primary" flex layout="row" ng-click="sidenavCtrl.bus()">
+                        <img src="img/map.png" class="md-avatar" alt="buses" /> Buses
+                    </md-button>
+                </md-list-item>
+
+                <md-list-item>
+                    <md-button class="md-raised md-primary" flex layout="row" ng-click="sidenavCtrl.user()">
+                        <img src="img/user.png" class="md-avatar" alt="user" /> users
+                    </md-button>
+                </md-list-item>
+                <md-list-item>
+                    <md-button class="md-raised md-warn" flex layout="row" ng-click="sidenavCtrl.useradd()">
+                        <img src="img/useradd.png" class="md-avatar" alt="add user" /> Add user
+                    </md-button>
+                </md-list-item>
+                <md-list-item>
+                    <md-button class="md-raised md-warn" flex layout="row" ng-click="sidenavCtrl.busadd()">
+                        <img src="img/busadd.png" class="md-avatar" alt="add bus" /> Add Buses
+                    </md-button>
+                </md-list-item>
+                <md-list-item>
+                    <md-button class="md-raised md-warn" flex layout="row" ng-click="sidenavCtrl.routeadd()">
+                        <img src="img/useradd.png" class="md-avatar" alt="add user" /> Add Route
+                    </md-button>
+                </md-list-item>
+            </md-list>
+        </md-sidenav>
+        <md-content flex>
+            <ng-view>
+
+            </ng-view>
+        </md-content>
+    </div>
+</body>
+
+</html>
