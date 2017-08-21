@@ -1,4 +1,4 @@
-
+<div ng-controller="loginCtrl as login"
 <form class="styleform middiv">
   <div class="container">
     <br>
@@ -7,6 +7,6 @@
 
     <label><b>Password</b></label>
     <input type="password" placeholder="Enter Password" ng-model="login.password" class="styleinput"><br><br>   
-    <button type="submit" class="loginbutton">Login</button>
+    <button type="submit" class="loginbutton" ng-click="login.signIn()">Login</button>
   </div>
 </form>

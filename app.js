@@ -298,3 +298,18 @@ angular.module('myApp', ['ngMaterial', 'ngRoute', "smart-table", "ngMap", "fireb
         );
     };
 })
+.controller("loginCtrl",loginCtrl)
+function loginCtrl($firebaseAuth,$location){
+     var auth = $firebaseAuth();
+    login=this;
+    login.signIn = function() {
+            var promise = auth.$signInWithEmailAndPassword(login.email, login.password);
+            console.log("signIN");
+            promise
+                .then(function(firebaseUser) {
+                   $location.path("/main");
+                }).catch(function(error) {
+                    console.log(error.message);
+                })
+    }
+}
