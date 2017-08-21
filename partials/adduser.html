@@ -3,52 +3,64 @@
 </md-toolbar>
 <div ng-controller="adduser as adduserCtrl">
 
-    <form style="margin:5%">
-        <md-input-container style="width:400px;align-self: center;margin-left:2%;">
-            <label>Name</label>
-            <input ng-model="adduserCtrl.name" type="text">
-        </md-input-container>
-
-        <md-input-container style="width:400px;align-self: center;margin-left:2%;">
-            <label>Email</label>
-            <input ng-model="adduserCtrl.email" type="email">
-        </md-input-container>
-
-        <md-input-container style="width:400px;align-self: center;margin-left:2%;">
-            <label>Password</label>
-            <input ng-model="adduserCtrl.password" type="password">
-        </md-input-container>
-
-        <md-input-container style="width:400px;align-self: center;margin-left:2%;">
-            <label>Id.</label>
-            <input ng-model="adduserCtrl.Id" type="number">
-        </md-input-container>
+    <form style="margin:5%" layout="column">
         <div layout="row">
-            <md-select placeholder="Select Type" ng-model="adduserCtrl.type" md-on-open="adduserCtrl.loadTypes()" style="width:400px;align-self: center;margin-left:2%;">
+            <md-input-container flex style="margin-left:2%;">
+                <label>Name</label>
+                <input ng-model="adduserCtrl.name" type="text">
+            </md-input-container>
+
+            <md-input-container flex style="margin-left:2%;">
+                <label>Email</label>
+                <input ng-model="adduserCtrl.email" type="email">
+            </md-input-container>
+        </div>
+        <div layout="row">
+            <md-input-container flex style="margin-left:2%;">
+                <label>Password</label>
+                <input ng-model="adduserCtrl.password" type="password">
+            </md-input-container>
+
+            <md-input-container flex style="margin-left:2%;">
+                <label>Id.</label>
+                <input ng-model="adduserCtrl.Id" type="number">
+            </md-input-container>
+        </div>
+        <div layout="row">
+            <md-select placeholder="Select Type" ng-model="adduserCtrl.type" md-on-open="adduserCtrl.loadTypes()" flex style="margin-left:2%;">
                 <md-option ng-value="type" ng-repeat="type in adduserCtrl.types">{{type.name}}</md-option>
             </md-select>
 
-            <md-select placeholder="Select Route" ng-model="adduserCtrl.route" md-on-open="adduserCtrl.loadRoutes()" style="width:400px;align-self: center;margin-left:2%;">
-                <md-option ng-value="route" ng-repeat="route in adduserCtrl.routes">{{route.name}}</md-option>
+            <md-select placeholder="Select Route" ng-model="adduserCtrl.route" md-on-open="adduserCtrl.loadRoutes()" flex style="margin-left:2%;">
+                <md-option ng-value="route"  ng-repeat="route in adduserCtrl.routes">{{route.name}}</md-option>
             </md-select>
         </div>
+
+        <div layout="row" ng-show="adduserCtrl.type.name=='Student'">
+            <md-input-container style="width:600px;align-self: center;margin-left:2%;margin-bottom:1px">
+                <label>Year</label>
+                <input ng-model="adduserCtrl.year" type="number">
+            </md-input-container>
+
+        </div>
         <div layout="row" ng-show="adduserCtrl.type.name=='Driver'">
-            <md-input-container style="width:400px;align-self: center;margin-left:2%;margin-bottom:1px">
+            <md-input-container flex style="margin-left:2%;margin-bottom:1px">
                 <label>Phone No.</label>
                 <input ng-model="adduserCtrl.phoneNo" type="tel">
             </md-input-container>
 
-            <div style="width:400px;align-self: center;margin-left:2%;">
+            <div flex style="margin-left:2%;">
                 <md-select placeholder=" Select Bus No. " ng-model="adduserCtrl.busNo " md-on-open="adduserCtrl.loadBuses() ">
-                    <md-option ng-value="bus " ng-repeat="bus in adduserCtrl.buses ">{{bus.no}}</md-option>
+                    <md-option ng-value="bus " ng-repeat="bus in adduserCtrl.buses ">{{bus.busNo}}</md-option>
                 </md-select>
             </div>
         </div>
         <div align="center ">
-            <md-button class="md-raised md-warn " ng-click="adduserCtrl.showSimpleToast() ">
+            <md-button class="md-raised md-warn " ng-click="adduserCtrl.createUser();adduserCtrl.showSimpleToast() ">
                 Add users
             </md-button>
+        </div>
     </form>
 
-    </div>
+</div>
 </div>

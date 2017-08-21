@@ -1,0 +1,56 @@
+<md-toolbar class="navStyle">
+    Route Add
+</md-toolbar>
+<div ng-controller="addroute as addrouteCtrl">
+    <form style="margin:5%" layout="column">
+        <div layout="row">
+            <md-input-container style="margin-left:2%" flex>
+                <label>Route Id</label>
+                <input ng-model="addrouteCtrl.routeId" type="number">
+            </md-input-container>
+            <md-input-container style="margin-left:2%" flex>
+                <label>Route Name</label>
+                <input ng-model="addrouteCtrl.routeName" type="text">
+            </md-input-container>
+        </div>
+
+        <div align="center ">
+            <md-button class="md-raised md-warn " ng-click="addrouteCtrl.createroute(); addrouteCtrl.showSimpleToast()">
+                Add Route
+            </md-button>
+        </div>
+    </form>
+
+    <div style="height:5em"></div>
+
+    <div style="padding:1em 1em 1em 1em">
+        <table st-table="displayedCollection" st-safe-src="addrouteCtrl.routes" class="table ">
+            <thead>
+
+                <tr style="background-color: rgb(63,81,181);color: rgba(255,255,255,0.87);">
+                    <th st-sort="id" style="text-align:center">Route Id.</th>
+                    <th st-sort="name" style="text-align:center">Route</th>
+                    <th></th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr ng-repeat="row in displayedCollection" style="text-align:center">
+                    <td>{{row.id}}</td>
+                    <td>{{row.name.length>55?row.name.substr(1,50)+'...':row.name}}</td>
+                    <td>
+                        <md-button class="tableIcon" style="margin-right:10%">
+                            <img style="height: 2em;width: 2em;" src="img/edit.png" aria-label="Edit" class="md-avatar" />
+                        </md-button>
+
+                        <md-button class="tableIcon">
+                            <img class="md-avatar" style="height: 2em;width: 2em;" aria-label="Delete" src="img/delete.png" />
+                        </md-button>
+                    </td>
+
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>

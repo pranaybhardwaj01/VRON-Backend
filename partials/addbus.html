@@ -1,8 +1,59 @@
 <md-toolbar class="navStyle">
     Add Buses
 </md-toolbar>
-<div>
-    <h1>
-        Add Buses
-    </h1>
+<div ng-controller="addbus as addbusCtrl">
+    <form style="margin:5%" layout="column">
+        <div>
+            <md-input-container style="margin-left:2%;width:100%">
+                <label>Bus No.</label>
+                <input ng-model="addbusCtrl.busNo" type="text">
+            </md-input-container>
+        </div>
+        <div layout="row" style="margin-left:2%;">
+            <md-select flex placeholder="Select Driver" ng-model="addbusCtrl.driver" md-on-open="addbusCtrl.loadAllDrivers()">
+                <md-option ng-value="driver" ng-repeat="driver in addbusCtrl.drivers">{{driver.name}}</md-option>
+            </md-select>
+
+            <md-select style="padding-left:2em" flex placeholder="Select Route" ng-model="addbusCtrl.route" md-on-open="addbusCtrl.loadRoutes()">
+                <md-option ng-value="route" ng-repeat="route in addbusCtrl.routes">{{route.name}}</md-option>
+            </md-select>
+        </div>
+        <div align="center ">
+            <md-button class="md-raised md-warn " ng-click="addbusCtrl.addBus();addbusCtrl.showSimpleToast()">
+                Add Bus
+            </md-button>
+        </div>
+    </form>
+    <div style="height:5em"></div>
+
+    <div style="padding:1em 1em 1em 1em">
+        <table st-table="displayedCollection" st-safe-src="addbusCtrl.buses" class="table ">
+            <thead>
+
+                <tr style="background-color: rgb(63,81,181);color: rgba(255,255,255,0.87);">
+                    <th st-sort="busNo" style="text-align:center">Bus No.</th>
+                    <th st-sort="driver" style="text-align:center">Driver</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr ng-repeat="row in displayedCollection" style="text-align:center">
+                    <td>{{row.busNo}}</td>
+                    <td>{{row.driver}}</td>
+                    <td>
+                        <md-button class="tableIcon" style="margin-right:10%">
+                            <img style="height: 2em;width: 2em;" src="img/edit.png" aria-label="Edit" class="md-avatar" />
+                        </md-button>
+
+                        <md-button class="tableIcon">
+                            <img class="md-avatar" style="height: 2em;width: 2em;" aria-label="Delete" src="img/delete.png" />
+                        </md-button>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
 </div>

@@ -1,8 +1,40 @@
 <md-toolbar class="navStyle">
     Map
 </md-toolbar>
-<div>
-    <h1>
-        Map
-    </h1>
-</div>
+<div ng-controller="map as mapCtrl">
+    <div map-lazy-load="https://maps.google.com/maps/api/js" style="background-color:gray;height:75%">
+        <ng-map center="27,77" zoom="11" street-view-control="false" style="background-color:gray;height:100%;width:100%">
+
+            <!-- <div class="bottom-sheet-demo inset" layout="row" layout-sm="column" layout-align="center">
+                <button class="md-fab md-fab-bottom-right md-button md-raised" type="button" ng-click="mapCtrl.showGridBottomSheet()" aria-label="Buses" style="background-color: rgb(245, 58, 27);">
+        
+                    <md-icon md-svg-src="img/bus.svg" class="ng-scope" role="img" aria-hidden="true"></md-icon>
+                </button>
+            </div> -->
+
+
+
+        </ng-map>
+        <md-fab-toolbar md-open="mapCtr.demo.isOpen" count="mapCtr.demo.count" md-direction="left">
+            <md-fab-trigger class="align-with-text " style="padding-top:1px">
+                <md-button aria-label="menu" class="md-fab md-primary ">
+                    <md-icon md-svg-src="img/bus.svg"></md-icon>
+                </md-button>
+            </md-fab-trigger>
+
+            <md-toolbar>
+                <md-fab-actions class="md-toolbar-tools">
+                    <md-button aria-label="comment" class="md-icon-button">
+                        <md-icon md-svg-src="img/three.svg" style="width:1em;height:1em"></md-icon>
+                    </md-button>
+                    <md-button aria-label="label" class="md-icon-button">
+                        <md-icon md-svg-src="img/two.svg"></md-icon>
+                    </md-button>
+                    <md-button aria-label="photo" class="md-icon-button">
+                        <md-icon md-svg-src="img/one.svg"></md-icon>
+                    </md-button>
+
+                </md-fab-actions>
+            </md-toolbar>
+        </md-fab-toolbar>
+    </div>

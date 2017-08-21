@@ -10,49 +10,70 @@
     <script src="bower_components\angular-material\angular-material.js"></script>
     <script src="bower_components\angular-route\angular-route.js"></script>
     <script src="bower_components\angular-smart-table\dist\smart-table.js"></script>
+    <script src="bower_components\angularfire.js"></script>
     <link rel="stylesheet" href="bower_components\bootstrap\dist\css\bootstrap.css" />
+    <script src="bower_components\ngmap\build\scripts\ng-map.js"></script>
+    <script src="http://maps.google.com/maps/api/js"></script>
+    <script src="app.js"></script>
+        <script src="angularfire.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
 
-    <script src="app.js">
-    </script>
+   <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCEwblGWFe3GJn1yAEcvgvrD5K3ElZg1oU",
+    authDomain: "vron-skit.firebaseapp.com",
+    databaseURL: "https://vron-skit.firebaseio.com",
+    projectId: "vron-skit",
+    storageBucket: "vron-skit.appspot.com",
+    messagingSenderId: "740185612461"
+  };
+  firebase.initializeApp(config);
+</script>
+
 </head>
 
 <body ng-app="myApp" layout="column">
 
-    <div class="container" layout="row" flex>
+    <!-- <div class="container" layout="row" flex>
         <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp ">
             <md-toolbar class="md-theme-indigo">
                 <h1 class="md-toolbar-tools">Menu</h1>
             </md-toolbar>
             <md-list ng-controller="sidenav as sidenavCtrl">
                 <md-list-item>
-                    <md-button class="md-raised md-primary" flex layout="row" ng-click="sidenavCtrl.bus()">
-                        <img src="img/map.png" class="md-avatar" alt="buses" /> Buses
+                    <md-button class="md-raised md-{{sidenavCtrl.busColor}}" layout="row" ng-click="sidenavCtrl.bus()" style="width:100%">
+                        <img src="img/map.png" style="padding-right:1.5em" class="md-avatar" alt="buses" /> Map
                     </md-button>
                 </md-list-item>
 
-                <md-list-item>
-                    <md-button class="md-raised md-primary" flex layout="row" ng-click="sidenavCtrl.user()">
-                        <img src="img/user.png" class="md-avatar" alt="user" /> users
+                <md-list-item style="text-align:left">
+                    <md-button class="md-raised md-{{sidenavCtrl.userColor}}" layout="row" ng-click="sidenavCtrl.user()" style="width:100%">
+                        <img src="img/user.png" style="padding-right:1em" class="md-avatar" alt="user" /> users
+                    </md-button>
+                </md-list-item>
+                <md-divider></md-divider>
+                <md-list-item style="padding-top:5%">
+                    <md-button class="md-raised md-{{sidenavCtrl.routeaddColor}}" layout="row" ng-click="sidenavCtrl.routeadd()" style="width:100%">
+                        <img src="img/route.png" style="padding-left:1em" class="md-avatar" alt="add user" /> Add Route
                     </md-button>
                 </md-list-item>
                 <md-list-item>
-                    <md-button class="md-raised md-warn" flex layout="row" ng-click="sidenavCtrl.useradd()">
+                    <md-button class="md-raised md-{{sidenavCtrl.useraddColor}}" layout="row" ng-click="sidenavCtrl.useradd()" style="width:100%">
                         <img src="img/useradd.png" class="md-avatar" alt="add user" /> Add user
                     </md-button>
                 </md-list-item>
                 <md-list-item>
-                    <md-button class="md-raised md-warn" flex layout="row" ng-click="sidenavCtrl.busadd()">
-                        <img src="img/busadd.png" class="md-avatar" alt="add bus" /> Add Buses
+                    <md-button class="md-raised md-{{sidenavCtrl.busaddColor}}" layout="row" ng-click="sidenavCtrl.busadd()" style="width:100%">
+                        <img src="img/busadd.png" style="padding-left:1em" class="md-avatar" alt="add bus" /> Add Buses
                     </md-button>
                 </md-list-item>
-                <md-list-item>
-                    <md-button class="md-raised md-warn" flex layout="row" ng-click="sidenavCtrl.routeadd()">
-                        <img src="img/useradd.png" class="md-avatar" alt="add user" /> Add Route
-                    </md-button>
-                </md-list-item>
+
             </md-list>
         </md-sidenav>
-        <md-content flex>
+        <md-content flex> -->
             <ng-view>
 
             </ng-view>

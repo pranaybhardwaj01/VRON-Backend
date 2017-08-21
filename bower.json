@@ -13,6 +13,7 @@
   ],
   "dependencies": {
     "angular-material-sidenav": "^0.0.14",
-    "angular-material": "^1.1.4"
+    "angular-material": "^1.1.4",
+    "ng-material-floating-button": "ng-mfb#^0.6.2"
   }
 }
